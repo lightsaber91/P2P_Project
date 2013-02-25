@@ -5,8 +5,8 @@
 const char *config_path = "/home/lightsaber/Programming/Progetto_P2P/config.ini";
 
 struct setting {
-  int MAX_DOWN;
-	int MAX_UP;
+  	double MAX_DOWN;
+	double MAX_UP;
 	char shared_folder[50];
 };
 
@@ -45,7 +45,7 @@ struct setting *parse_config_file ()
                                         d_max[i-15] = line[i];
                                         i++;
                                 }
-				s->MAX_DOWN = atoi(d_max);
+				s->MAX_DOWN = atof(d_max);
                         }
                         if(strncmp(line, "Upload_speed=", 13) == 0) {
                                 int i = 13;
@@ -54,7 +54,7 @@ struct setting *parse_config_file ()
                                         u_max[i-13] = line[i];
                                         i++;
                                 }
-                                s->MAX_UP = atoi(u_max);
+                                s->MAX_UP = atof(u_max);
                         }
 		}
 	}
